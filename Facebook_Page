@@ -1,0 +1,36 @@
+import json
+import facebook #Use pip install facebook-sdk
+
+def main():
+    # Page Access token: It is the access token required to access the page.
+	token = "EAAEn2Axr1A0BAP14bsUv2Oo7BG4WlTMoxa69RVJqSET30AQAgjsnZBMcvAFf31cCfIm3ZAeIC8ZBVB3ItljFlLiovzkGNLffXX6xnFzXUR8YWlTKhaZAfWSiP8qndx8OEUJZAOhHKZAZBmdLKBeofKOEZBHT0pJhzyAROdEkhuOo6pppeT56kWMuoQMY9ZAX1BmLnYJsWp60d8gZDZD"
+    # GraphAPI object to access API methods.
+	graph = facebook.GraphAPI(token)
+	#we have extracted the desired fields in a variable profile.
+    # Here, notice that 'me' in get_object() method indicates that we are doing it for our own account.
+    #first_name: returns the first name of user.
+    #location: The person's current location as entered by them on their profile. This field is not related to check-ins.
+    #email: The person's primary email address listed on their profile. This field will not be returned if no valid email address is available.
+    #link: A link to the person's timeline.'
+
+	# fields = ['first_name', 'location{location}','email','link','user_friends']
+	profile = graph.get_object('me',fields='id,name,bio,category,awards,band_members,artists_we_like,fan_count,displayed_message_response_time,overall_star_rating')
+	#return desired fields
+	print(json.dumps(profile, indent=4))
+
+if __name__ == '__main__':
+	main()
+
+#o/p:
+# {
+#     "id": "1472339113054688",
+#     "name": "Krishna Kumar Gupta",
+#     "bio": "Hiii frns, I m a singer who has performed at different Levels @ state as well as @ National Level n also have done many stage shows..& .m trying mah lvl bst to improve ma Singing n also learning Music, so dat i can rock all ur feets & also can perform even much more better..In d comming time i hope so ll b rocking u even Much more....\nI heartedly thnk each n every 1 for Joining mah world...",
+#     "category": "Musician/Band",
+#     "awards": "\u20221st Runner for the TALENT HUNT Competition \u201cTECHNO-TATWA\u201d held at MAE, Alandi.\n\n\u20221st Runner for the SOLO SINGING Competition \u201cXPRESSION-2013\u201d held at IMED, BVDU, \n\n\u20222nd runner \u201cSINHGAD KARANDAK 2013\u201d SINHGAD IDOL (Duet) STES, Pune.\n\u20223rd runner in \u201cSINHGAD KARANDAK 2014\u201d SINHGAD IDOL (Duet) STES, Pune.\n",
+#     "band_members": "Sagar, Ronak, Ninad, Ankur,Vaibhav ....",
+#     "artists_we_like": "Arijeet Singh, A.R. Rehman, Mohit chauhan, Atif Aslam, KK, Sonu Nigam, Kailash kher,  Shaan, Udit Narayan.. , Shankar Mahadevan & Javed Ali..",
+#     "fan_count": 223,
+#     "displayed_message_response_time": "AUTOMATIC"
+# }
+#
