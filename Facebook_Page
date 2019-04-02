@@ -3,7 +3,7 @@ import facebook #Use pip install facebook-sdk
 
 def main():
     # Page Access token: It is the access token required to access the page.
-	token = "EAAEn2Axr1A0BAP14bsUv2Oo7BG4WlTMoxa69RVJqSET30AQAgjsnZBMcvAFf31cCfIm3ZAeIC8ZBVB3ItljFlLiovzkGNLffXX6xnFzXUR8YWlTKhaZAfWSiP8qndx8OEUJZAOhHKZAZBmdLKBeofKOEZBHT0pJhzyAROdEkhuOo6pppeT56kWMuoQMY9ZAX1BmLnYJsWp60d8gZDZD"
+	token = "Your Page Access token"
     # GraphAPI object to access API methods.
 	graph = facebook.GraphAPI(token)
 	#we have extracted the desired fields in a variable profile.
